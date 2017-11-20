@@ -1,0 +1,53 @@
+
+int led=10;//declaramos que led significa pin digital  10
+
+void setup() {
+  
+Serial.begin(9600); //establecemos la velocidad de comunicacion en 9600
+  
+pinMode(led, OUTPUT); //establecemos led como salida
+ 
+}
+
+
+
+
+void loop() {
+
+
+ 
+ Serial.println(analogRead(A0)); // mostramos en el puerto serial la lectura del pin analogico 0
+ 
+  if (analogRead(A0)>750){       // si la lectura del pin analogico 0 es mayor que 750 hace :
+   
+  Serial.println("no llueve");  // escribe en el puerto serial no llueve
+    
+  digitalWrite(led,LOW);       //apagamos el led
+   
+  }
+
+ 
+ 
+  if (analogRead(A0)<750){   	     //si la lectura del pin analogico 0 es menor que 750  :
+   
+  Serial.println("esta lloviendo"); //escribe en el puerto serial esta lloviendo
+   
+  digitalWrite(led,HIGH);
+
+  delay(100);
+   
+  digitalWrite(led,LOW); // hacemos parpadear el led
+   
+  delay(100);
+   
+  digitalWrite(led,HIGH);         
+       
+  }
+ 
+
+}
+   
+   
+   
+
+
